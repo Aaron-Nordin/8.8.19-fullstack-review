@@ -7,6 +7,7 @@ export default class Landing extends Component {
     emailInput: "",
     passwordInput: ""
   };
+
   render() {
     return (
       <div className="Landing">

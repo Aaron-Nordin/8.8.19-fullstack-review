@@ -1,10 +1,8 @@
-body{
-  background: linear-gradient(69deg rgb(109, 226, 109) rgb(76, 200, 241));
+body {
+  background: linear-gradient(to bottom, #09ee7b, #d7e96f);
   min-height: 100vh;
 }
-
 .App {
   max-width: 1000px;
   margin: 0 auto;
 }
-
