@@ -4,10 +4,11 @@ const massive = require("massive");
 const session = require("express-session");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const authCtrl = require("./controllers/authController");
+const bankCtrl = require("./controllers/bankController")
 
 const app = express();
-app.use(express.json());
 
+app.use(express.json());
 app.use(
   session({
     secret: SESSION_SECRET,
@@ -19,11 +20,13 @@ app.use(
   })
 );
 
+app.post("/auth/register", authCtrl.register);
+app.post("/auth/login", authCtrl.login)
+app.delete("/auth/logout", authCtrl.logout);
+app.post("/api/deposit", )
+
+
 massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
-  app.listen(SERVER_PORT, () => console.log(`Server ${SERVER_PORT} is aware`));
+  app.listen(SERVER_PORT, () => console.log(`Listening on ${SERVER_PORT}`));
 });
-
-//--------------------------ENDPONTS----------------------------
-
-app.post("/auth/register", authCtrl.register);
